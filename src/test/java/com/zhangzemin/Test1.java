@@ -28,12 +28,12 @@ public class Test1 {
         一条 SQL 插入一条记录或者多条记录*/
 
         //插入一条
-        /*Person person = new Person();
-        person.setName("zhangzemin");
+        Person person = new Person();
+        person.setName("事务");
         person.setGender("男");
         person.setEmail("longzhenghe@163.com");
         person.setCreateDate(new Date());
-        dao.insert(person);*/
+        dao.insert(person);
 
         //插入多条
         /*Person person1 = new Person();
@@ -150,12 +150,12 @@ public class Test1 {
         //集合操作(func)
 
         //整数类型. 例如调用sum
-        int func = dao.func(Person.class, "sum", "id");
+        /*int func = dao.func(Person.class, "sum", "id");
         System.out.println(func);
 
         //其他类型
         dao.func2(Person.class, "min", "id");
-
+*/
 
     }
 }

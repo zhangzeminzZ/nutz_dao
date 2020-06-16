@@ -40,7 +40,7 @@ public class Test4 {
                 while (resultSet.next()){
                     try {
                         Person p = new Person();
-                        p.setId(Integer.parseInt(resultSet.getString("id")));
+//                        p.setId(Integer.parseInt(resultSet.getString("id")));
                         p.setName(resultSet.getString("name"));
                         p.setAge(Integer.parseInt(resultSet.getString("age")));
                         p.setGender(resultSet.getString("gender"));
@@ -108,9 +108,9 @@ public class Test4 {
                 while(resultSet.next()){
                     try {
                         Person p = new Person();
-                        p.setId(Integer.parseInt(resultSet.getString("id")));
+//                        p.setId(Integer.parseInt(resultSet.getString("id")));
                         p.setName(resultSet.getString("name"));
-                        p.setId(Integer.parseInt(resultSet.getString("id")));
+//                        p.setId(Integer.parseInt(resultSet.getString("id")));
                         p.setName(resultSet.getString("name"));
                         p.setAge(Integer.parseInt(resultSet.getString("age")));
                         p.setGender(resultSet.getString("gender"));

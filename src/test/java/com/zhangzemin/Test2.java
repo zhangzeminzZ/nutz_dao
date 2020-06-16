@@ -1,17 +1,22 @@
 package com.zhangzemin;
 
 import com.zhangzemin.domin.Person;
+import com.zhangzemin.domin.Sw;
 import org.junit.Test;
 import org.nutz.dao.Cnd;
 import org.nutz.dao.Condition;
 import org.nutz.dao.Dao;
 import org.nutz.dao.entity.Entity;
 import org.nutz.dao.impl.NutDao;
+import org.nutz.dao.impl.NutTxDao;
 import org.nutz.dao.sql.Criteria;
 import org.nutz.dao.util.cri.SqlExpressionGroup;
 import org.nutz.dao.util.cri.Static;
 import org.nutz.json.Json;
+import org.nutz.trans.Atom;
+import org.nutz.trans.Trans;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -93,4 +98,31 @@ public class Test2 {
             System.err.println(p);
         }
     }
+
+    @Test
+    public void test4(){
+        //插入一条
+        final Person person = new Person();
+        person.setName("事务测试");
+        person.setGender("男");
+        person.setEmail("shiwu@163.com");
+        person.setCreateDate(new Date());
+
+
+        final Sw sw = new Sw();
+        sw.setZt("01");
+        sw.setJlbz("1");
+
+        Trans.exec(new Atom(){
+            @Override
+            public void run() {
+                dao.insert(person);
+//                int i = 1/0;
+                dao.insert(sw);
+//                throw new RuntimeException("失败");
+            }
+        });
+
+    }
+
 }

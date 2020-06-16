@@ -1,9 +1,6 @@
 package com.zhangzemin.domin;
 
-import org.nutz.dao.entity.annotation.Column;
-import org.nutz.dao.entity.annotation.Id;
-import org.nutz.dao.entity.annotation.Name;
-import org.nutz.dao.entity.annotation.Table;
+import org.nutz.dao.entity.annotation.*;
 
 import java.util.Date;
 
@@ -13,9 +10,10 @@ import java.util.Date;
 
 @Table("t_person")
 public class Person {
-    @Id
-    private Integer id;
     @Name
+    @Prev(els=@EL("uuid(32)"))
+    private String id;
+    @Column
     private String name;
     @Column
     private Integer age;
@@ -28,11 +26,11 @@ public class Person {
 //    @Column(hump=true)
 
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
